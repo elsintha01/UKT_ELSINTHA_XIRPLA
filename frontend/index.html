@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Peminjaman Alat Praktik</title>
+  <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased">
+
+  <header class="bg-blue-700 text-white shadow">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold">Sistem Peminjaman Alat Praktik</h1>
+        <p class="text-xs text-blue-200">Laboratorium SMK </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Form Peminjaman -->
+      <section class="lg:col-span-1">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <h2 class="text-lg font-bold mb-1">Form Peminjaman</h2>
+          <p class="text-xs text-slate-500 mb-4">Stok alat otomatis berkurang saat dipinjam.</p>
+
+          <form id="formPinjam" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Pilih Alat</label>
+              <select id="id_alat" required class="w-full border border-slate-300 rounded-lg p-2.5 text-sm"></select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Nama Peminjam</label>
+              <input type="text" id="nama_peminjam"
+                class="w-full border border-slate-300 rounded-lg p-2.5 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Kelas</label>
+              <input type="text" id="kelas" 
+                class="w-full border border-slate-300 rounded-lg p-2.5 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Jumlah Pinjam</label>
+              <input type="number" id="jumlah" min="1" 
+                class="w-full border border-slate-300 rounded-lg p-2.5 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Tanggal Pinjam</label>
+              <input type="date" id="tanggal_pinjam" 
+                class="w-full border border-slate-300 rounded-lg p-2.5 text-sm" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1">Tanggal Kembali </label>
+              <input type="date" id="tanggal_kembali" 
+                class="w-full border border-slate-300 rounded-lg p-2.5 text-sm" />
+            </div>
+
+            <button type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition">
+              Ajukan Peminjaman
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Tabel Alat & Peminjaman -->
+      <section class="lg:col-span-2 space-y-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <h2 class="text-lg font-bold mb-3">Daftar Stok Alat</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="bg-slate-50 border-b text-slate-600 uppercase text-xs">
+                  <th class="p-2.5">Nama Alat</th>
+                  <th class="p-2.5">Kategori</th>
+                  <th class="p-2.5">Kondisi</th>
+                  <th class="p-2.5 text-center">Stok</th>
+                  <th class="p-2.5">Lokasi</th>
+                </tr>
+              </thead>
+              <tbody id="tabelAlat" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+          <h2 class="text-lg font-bold mb-3">Riwayat Peminjaman</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="bg-slate-50 border-b text-slate-600 uppercase text-xs">
+                  <th class="p-2.5">Peminjam</th>
+                  <th class="p-2.5">Kelas</th>
+                  <th class="p-2.5">Alat</th>
+                  <th class="p-2.5 text-center">Jumlah</th>
+                  <th class="p-2.5">Tgl Pinjam</th>
+                  <th class="p-2.5">Tgl Kembali</th>
+                  <th class="p-2.5 text-center">Status / Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="tabelPeminjaman" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
